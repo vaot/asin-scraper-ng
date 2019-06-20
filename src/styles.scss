@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+.search-component__input {
+  input:focus {
+    outline: none;
+  }
+}
+
+.search-component__input {
+  input {
+    border: none;
+    border-bottom: 1px solid #000;
+    height: 100%;
+    width: 300px;
+  }
+}
+
+.search-component {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+search-component {
+  display: flex;
+  justify-content: center;
+}
+
+.products-component__products {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  flex-flow: row wrap;
+
+  .card {
+    width: 300px;
+    margin: 0 0 12px 12px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    cursor: pointer;
+    position: relative;
+
+    .inactive-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      display: inline-flex;
+      justify-content: center;
+
+      span {
+        align-self: center;
+        font-size: 24px;
+        font-weight: bolder;
+      }
+    }
+
+    &.inactive {
+      div {
+        opacity: 0.3;
+      }
+    }
+
+    &.active {
+      .inactive-overlay {
+        display: none;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    }
+  }
+}
+
+.card-image-wrapper {
+  height: 200px;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.collapse-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a.disabled {
+  background-color: #bcc4ce;
+  cursor: not-allowed;
+}

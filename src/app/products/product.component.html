@@ -1,0 +1,18 @@
+<router-outlet name='navbar'></router-outlet>
+
+<div class="jumbotron">
+  <h3 class="display-8">{{product.title}}</h3>
+  <div class='card-image-wrapper'>
+    <img src="{{product.amazon_image_url}}" class="card-img-top">
+  </div>
+  <p>
+    <span class="badge badge-primary">Category</span>
+    {{product.category}}
+  </p>
+  <p>
+    <span class="badge badge-primary">Rank</span>
+    {{product.best_seller_rank}}
+  </p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" href="https://www.amazon.com/dp/{{product.asin}}" role="button">See on Amazon</a>
+</div>

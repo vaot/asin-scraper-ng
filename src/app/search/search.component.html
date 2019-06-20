@@ -1,0 +1,14 @@
+<div class="search-component">
+  <div class="search-component__input">
+    <input [(ngModel)]="query" type="text" name="search">
+  </div>
+
+  <div class="search-component__submit">
+    <a class="btn btn-primary"
+       (click)="search()"
+       [class.disabled]='isProcessing || !query'
+       href="#">
+      Fetch
+    </a>
+  </div>
+</div>

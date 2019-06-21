@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-
-const API_URL: string = "http://localhost:3000/api/v1";
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +24,10 @@ export class ProductsService {
   }
 
   private toApiEndpoint(route: string) {
-    return `${API_URL}/${route}`
+    return `${this.getApiUrl()}/${route}`
   }
 
   private getApiUrl() {
-    return API_URL
+    return `${environment.apiUrl}/api/v1`
   }
 }

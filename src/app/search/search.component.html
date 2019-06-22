@@ -1,12 +1,20 @@
 <div class="search-component">
   <div class="search-component__input">
-    <input [(ngModel)]="query" type="text" name="search">
+    <input [(ngModel)]="query"
+           type="text"
+           name="searchQuery"
+           pattern="^[0-9a-zA-Z]{10}$"
+           #searchQuery="ngModel"
+           max="10">
+    <div class='error'>
+      <span *ngIf="searchQuery.errors?.pattern">ASIN number is not valid</span>
+    </div>
   </div>
 
   <div class="search-component__submit">
     <a class="btn btn-primary"
        (click)="search()"
-       [class.disabled]='isProcessing || !query'
+       [class.disabled]='isProcessing || !query || searchQuery.errors?.pattern'
        href="#">
       Fetch
     </a>

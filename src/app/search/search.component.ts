@@ -18,7 +18,7 @@ export class SearchComponent {
   search() {
     this.isProcessing = true
     this.productsService.search(this.query).subscribe((r: any) => {
-      if (!this.products.filter((obj) => { obj.asin == r.asin })[0]) {
+      if (!this.products.filter((obj) => { return obj.asin == r.asin })[0]) {
         this.products.push(r)
       }
 

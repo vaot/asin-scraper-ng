@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment'
   providedIn: 'root'
 })
 
+// Wrapper around products api.
 export class ProductsService {
   constructor(
     private http: HttpClient

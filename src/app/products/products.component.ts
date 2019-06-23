@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductsService) {
     let cable = ActionCable.createConsumer(`ws://${environment.apiHost}/cable`)
 
+    // Receive updates from the backend via action cable.
     cable.subscriptions.create({ channel: 'ProductsChannel' }, {
       received: (data) => {
         this.onProcessedProduct(data.product)
@@ -22,6 +23,11 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  // When products are processed/scraped we receive them
+  // via action cable and perform this callback.
+  // If the coming product is not in the list, it is coming from a different
+  // client so we just add to the list. If it is in the list, it was created
+  // by this client.
   onProcessedProduct(product) {
     let index = this.products.findIndex((prod) => { return prod.asin == product.asin })
 

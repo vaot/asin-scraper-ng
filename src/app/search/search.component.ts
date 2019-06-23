@@ -17,7 +17,11 @@ export class SearchComponent {
 
   search() {
     this.isProcessing = true
+
     this.productsService.search(this.query).subscribe((r: any) => {
+
+      // If we dont find this product in the list, it is a new one and we
+      // should add to the list.
       if (!this.products.filter((obj) => { return obj.asin == r.asin })[0]) {
         this.products.unshift(r)
       }

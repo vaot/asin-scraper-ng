@@ -23,6 +23,10 @@ export class ProductsService {
     return this.http.get(this.toApiEndpoint(`products/${asin}`))
   }
 
+  destroy(asin) {
+    return this.http.delete(this.toApiEndpoint(`products/${asin}`))
+  }
+
   private toApiEndpoint(route: string) {
     return `${this.getApiUrl()}/${route}`
   }

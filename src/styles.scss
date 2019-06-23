@@ -38,8 +38,10 @@ search-component {
     width: 300px;
     margin: 0 0 12px 12px;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-    cursor: pointer;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .inactive-overlay {
       position: absolute;
@@ -85,6 +87,10 @@ search-component {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.is-clickable {
+  cursor: pointer;
 }
 
 a.disabled {

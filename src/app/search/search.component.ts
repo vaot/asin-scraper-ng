@@ -19,7 +19,7 @@ export class SearchComponent {
     this.isProcessing = true
     this.productsService.search(this.query).subscribe((r: any) => {
       if (!this.products.filter((obj) => { return obj.asin == r.asin })[0]) {
-        this.products.push(r)
+        this.products.unshift(r)
       }
 
       this.query = ''

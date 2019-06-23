@@ -3,35 +3,48 @@
 
 <div class='products-component__products'>
   <div *ngFor="let product of products"
-       class="card {{product.status}}"
-       [routerLink]="['/products', product.asin]">
+       class="card {{product.status}}">
 
-    <div class='inactive-overlay'>
-      <span>Loading...</span>
+    <div class='is-clickable' [routerLink]="['/products', product.asin]">
+      <div class='inactive-overlay'>
+        <span>
+          <img src="assets/ajax-loader.gif">
+          Loading...
+        </span>
+      </div>
+
+      <div class="card-header">
+        {{product.asin}}
+      </div>
+
+      <div class='card-image-wrapper'>
+        <img src="{{product.amazon_image_url}}" class="card-img-top">
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title collapse-text" data-title="{{product.title}}">
+          {{product.title}}
+        </h5>
+        <p class="card-text">
+          <span class="badge badge-primary">Category</span>
+          {{product.category}}
+        </p>
+        <p class="card-text">
+          <span class="badge badge-primary">Rank</span>
+          #{{product.best_seller_rank}}
+        </p>
+        <p class="card-text">
+          <span class="badge badge-primary">Dimensions</span>
+          {{product.length_in_hundreds/100}} x {{product.width_in_hundreds/100}} x {{product.height_in_hundreds/100}}
+        </p>
+      </div>
     </div>
 
-    <div class="card-header">
-      {{product.asin}}
-    </div>
-    <div class='card-image-wrapper'>
-      <img src="{{product.amazon_image_url}}" class="card-img-top">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title collapse-text" data-title="{{product.title}}">
-        {{product.title}}
-      </h5>
-      <p class="card-text">
-        <span class="badge badge-primary">Category</span>
-        {{product.category}}
-      </p>
-      <p class="card-text">
-        <span class="badge badge-primary">Rank</span>
-        #{{product.best_seller_rank}}
-      </p>
-      <p class="card-text">
-        <span class="badge badge-primary">Dimensions</span>
-        {{product.length_in_hundreds/100}} x {{product.width_in_hundreds/100}} x {{product.height_in_hundreds/100}}
-      </p>
+    <div class="card-footer">
+      <button class='btn-sm btn-danger'
+              (click)="deleteProduct(product)">
+        Delete
+      </button>
     </div>
   </div>
 </div>

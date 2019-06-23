@@ -24,7 +24,12 @@ export class ProductsComponent implements OnInit {
 
   onProcessedProduct(product) {
     let index = this.products.findIndex((prod) => { return prod.asin == product.asin })
-    this.products[index] = product
+
+    if (index == -1) {
+      this.products.unshift(product)
+    } else {
+      this.products[index] = product
+    }
   }
 
   ngOnInit() {
